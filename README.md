@@ -9,10 +9,13 @@ there will more functionalities added later on, I will be updating this files
 - [x] Draw Text with background and outline
 - [x] Draw Transparent Shape
 - [x] Reading Multiple Images from dir
+- [ ] Extracting Frame from Video file
+- [ ] color segmentation 
 - [ ] Contours Detection
 - [ ] Contours Sorting By Area
-- [ ] Contours Sorting By Location 
+- [ ] Contours Sorting By Location
 - [ ] Contours Basic Shape detection
+- [ ] QR Code Detection
 - [ ] Aruco Marker Generator 
 - [ ] Marker Detection
 - [ ] Camera Calibration
