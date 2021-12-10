@@ -3,7 +3,7 @@
 > This is python files which contain few helping function to draw better text, on screen, like text with background, and drawing transparent shapes.
 there will more functionalities added later on, I will be updating this files 
 
-#TODO
+# TODO
 - [x] Draw Text with background 
 - [x] Draw Text with background and outline
 - [x] Draw Transparent Shape
