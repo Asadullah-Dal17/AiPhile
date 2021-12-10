@@ -4,17 +4,18 @@
 
 there will more functionalities added later on, I will be updating this files 
 #TODO
-- [ ] Draw Text with background 
-- [ ] Draw Text with background and outline
-- [ ] Draw Transparent Shape
-- [ ] Reading Multiple Images from dir
-- [ ] Aruco Marker Generator 
-- [ ] Marker Detection
-- [ ] Camera Calibration
+- [x] Draw Text with background 
+- [x] Draw Text with background and outline
+- [x] Draw Transparent Shape
+- [x] Reading Multiple Images from dir
 - [ ] Contours Detection
 - [ ] Contours Sorting By Area
 - [ ] Contours Sorting By Location 
 - [ ] Contours Basic Shape detection
+- [ ] Aruco Marker Generator 
+- [ ] Marker Detection
+- [ ] Camera Calibration
+
 
 
 - I case you want help me out, just subscribe the channel, check out my YouTube channel <a href="https://www.youtube.com/c/aiphile"> YouTube <img alt="AiPhile Youtube" src="https://user-images.githubusercontent.com/66181793/131223988-882d53a0-4882-468f-9bd7-46b46466baae.png"  width="35"> </a>
