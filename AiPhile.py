@@ -28,6 +28,7 @@ PINK = (147,20,255)
 INDIGO=[75,0,130]   
 VIOLET=[238,130,238]   
 GRAY=[127,127,127]  
+
 def readImagesDir(path, resize_flag=None):
     files = os.listdir(path)
     list_path =[]
