@@ -11,7 +11,7 @@
 '''
 import cv2 as cv 
 import numpy as np
-
+import os
 
 # colors
 BLACK = (0,0,0)
@@ -28,6 +28,20 @@ PINK = (147,20,255)
 INDIGO=[75,0,130]   
 VIOLET=[238,130,238]   
 GRAY=[127,127,127]  
+def readImagesDir(path, resize_flag=None):
+    files = os.listdir(path)
+    list_path =[]
+    img_list =[]
+    for file in files:
+        img_path = os.path.join(path, file)
+        list_path.append(img_path)
+        img = cv.imread(img_path)
+        if resize_flag:
+            img = cv.resize(img, resize_flag, interpolation=cv.INTER_CUBIC)
+        img_list.append(img)
+        # cv.imshow('test', img)
+        # cv.waitKey(0)
+    return img_list
 
 # Draw text with background 
 def textBG(img, text, position, fonts ,scaling=1, color=(0,255,0), thickness=1, padding=3):
