@@ -1,10 +1,11 @@
 # AiPhile
 
 > This is python files which contain few helping function to draw better text, on screen, like text with background, and drawing transparent shapes.
-
 there will more functionalities added later on, I will be updating this files 
 
+
 #TODO
+
 - [x] Draw Text with background 
 - [x] Draw Text with background and outline
 - [x] Draw Transparent Shape
@@ -16,11 +17,17 @@ there will more functionalities added later on, I will be updating this files
 - [ ] Contours Sorting By Location
 - [ ] Contours Basic Shape detection
 - [ ] QR Code Detection
+- [ ] QR Code Generator
 - [ ] Aruco Marker Generator 
 - [ ] Marker Detection
 - [ ] Camera Calibration
 
+## Requirements 
 
+```
+pip install opencv-contrib-python
+
+```
 
 - I case you want help me out, just subscribe the channel, check out my YouTube channel <a href="https://www.youtube.com/c/aiphile"> YouTube <img alt="AiPhile Youtube" src="https://user-images.githubusercontent.com/66181793/131223988-882d53a0-4882-468f-9bd7-46b46466baae.png"  width="35"> </a>
 
