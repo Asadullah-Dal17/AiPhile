@@ -156,17 +156,14 @@ def fill_poly_trans(image, points, color, opacity):
     return image
 
 
-def trans_circle(
-    image,
-    org,
-    radi,
-    color,
-    opacity,
-):
+def trans_circle(image, org, radi, color, opacity, outline=0):
     overlay = image.copy()  # coping the image
-    cv.circle(overlay, org, radi, color, -1)
+    cv.circle(overlay, org, radi, color, -1, cv.LINE_AA)
     new_image = cv.addWeighted(overlay, opacity, image, 1 - opacity, 0.1)
     # print(points_list)
+    if outline > 0:
+        cv.circle(new_image, org, radi, color, outline, cv.LINE_AA)
+
     image = new_image
     # cv.polylines(image, [list_to_np_array], True, color, 1, cv.LINE_AA)
     return image
@@ -184,7 +181,7 @@ if __name__ == "__main__":
     # turn black color into white color image
     image[image == 0] = 255
     # Draw the transparent circle on the image
-    image = trans_circle(image, (400, 400), 80, list_of_colors[2][0], 0.4)
+    image = trans_circle(image, (400, 400), 80, list_of_colors[2][0], 0.4, 4)
     # create rectangle with corners around that.
     image = rect_corners(image, [255, 255, 290, 290], (0, 0, 0), th=5)
     # Draw text with background
