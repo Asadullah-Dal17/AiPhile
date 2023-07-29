@@ -174,7 +174,7 @@ def trans_circle(
 
 if __name__ == "__main__":
     list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(10)
-    list_of_colors.pop(-1)
+    list_of_colors.pop(0)
     list_of_colors = convert_flat_list_to_list_of_two_values(list_of_colors)
     fg_color, bg_color = list_of_colors[1]
     # for color in list_of_colors:
