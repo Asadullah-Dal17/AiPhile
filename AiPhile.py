@@ -87,6 +87,7 @@ def text_with_background(
     fonts=cv.FONT_HERSHEY_PLAIN,
     scaling=1,
     color=(0, 255, 255),
+    bg_color=(0, 0, 0),
     th=1,
     draw_corners=True,
     up=0,
@@ -95,7 +96,7 @@ def text_with_background(
     x, y = position
     y = y - up
     (w, h), p = cv.getTextSize(text, fonts, scaling, th)
-    cv.rectangle(image, (x - p, y + p), (x + w + p, y - h - p), (0, 0, 0), -1)
+    cv.rectangle(image, (x - p, y + p), (x + w + p, y - h - p), bg_color, -1)
 
     if draw_corners:
         rect_points = [x - p, y - h - p, w + p + p, h + p + p]
@@ -124,3 +125,26 @@ def trans_circle(image, org, radi, color, opacity):
     image = new_image
     # cv.polylines(image, [list_to_np_array], True, color, 1, cv.LINE_AA)
     return image
+
+
+if __name__ == "__main__":
+    # creating empty image using np
+    image = np.zeros((800, 800, 3), dtype=np.uint8)
+    # turn black color into white color image
+    image[image == 0] = 255
+    # Draw the transparent circle on the image
+    image = trans_circle(image, (400, 400), 80, (0, 255, 255), 0.4)
+    # create rectangle with corners around that.
+    image = rect_corners(image, [255, 255, 290, 290], (0, 0, 0), th=5)
+    # Draw text with background
+    text_with_background(
+        image,
+        f"AiPhile is all about Computer Vision",
+        (30, 60),
+        fonts=cv.FONT_HERSHEY_TRIPLEX,
+        scaling=1.11,
+        color=(0, 255, 0),
+        bg_color=(25, 25, 75),
+    )
+    cv.imshow("image", image)
+    cv.waitKey(0)
