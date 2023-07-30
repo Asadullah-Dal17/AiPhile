@@ -169,30 +169,60 @@ def trans_circle(image, org, radi, color, opacity, outline=0):
     return image
 
 
+def check_dir_exists(dir_name):
+    # checking if directory exist or not
+    if os.path.exists(dir_name):
+        print(f"Directory '{dir_name}' already exist")
+        return True
+    # if not then create one directory.
+    else:
+        print(f"Creating Directory..  '{dir_name}'")
+        os.mkdir(dir_name)
+        return False
+
+
+def frame_extractor(cam_id_or_video_path, dir_to_save="frames"):
+    cap = cv.VideoCapture(cam_id_or_video_path)
+    check_dir_exists(dir_to_save)
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("please correct the path or id of input ID(index) of camera")
+            break
+        cv.imshow("frame", frame)
+        key = cv.waitKey(1)
+        if key == ord("q"):
+            break
+    cap.release()
+    cv.destroyAllWindows()
+
+
 if __name__ == "__main__":
-    list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(10)
-    list_of_colors.pop(0)
-    list_of_colors = convert_flat_list_to_list_of_two_values(list_of_colors)
-    fg_color, bg_color = list_of_colors[1]
-    # for color in list_of_colors:
-    #     print(color)
-    # creating empty image using np
-    image = np.zeros((800, 800, 3), dtype=np.uint8)
-    # turn black color into white color image
-    image[image == 0] = 255
-    # Draw the transparent circle on the image
-    image = trans_circle(image, (400, 400), 80, list_of_colors[2][0], 0.4, 4)
-    # create rectangle with corners around that.
-    image = rect_corners(image, [255, 255, 290, 290], (0, 0, 0), th=5)
-    # Draw text with background
-    text_with_background(
-        image,
-        f"AiPhile is all about Computer Vision",
-        (30, 60),
-        fonts=cv.FONT_HERSHEY_TRIPLEX,
-        scaling=1.11,
-        color=fg_color,
-        bg_color=bg_color,
-    )
-    cv.imshow("image", image)
-    cv.waitKey(0)
+    frame_extractor(1)
+    # list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(10)
+    # list_of_colors.pop(0)
+    # list_of_colors = convert_flat_list_to_list_of_two_values(list_of_colors)
+    # fg_color, bg_color = list_of_colors[1]
+    # # for color in list_of_colors:
+    # #     print(color)
+    # # creating empty image using np
+    # image = np.zeros((800, 800, 3), dtype=np.uint8)
+    # # turn black color into white color image
+    # image[image == 0] = 255
+    # # Draw the transparent circle on the image
+    # image = trans_circle(image, (400, 400), 80, list_of_colors[2][0], 0.4, 4)
+    # # create rectangle with corners around that.
+    # image = rect_corners(image, [255, 255, 290, 290], (0, 0, 0), th=5)
+    # # Draw text with background
+    # text_with_background(
+    #     image,
+    #     f"AiPhile is all about Computer Vision",
+    #     (30, 60),
+    #     fonts=cv.FONT_HERSHEY_TRIPLEX,
+    #     scaling=1.11,
+    #     color=fg_color,
+    #     bg_color=bg_color,
+    # )
+    # cv.imshow("image", image)
+    # cv.waitKey(0)
