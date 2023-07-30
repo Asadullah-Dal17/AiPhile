@@ -9,7 +9,7 @@ there will more functionalities added later on, I will be updating this files
 - [x] Draw Transparent Shape
 - [x] Reading Multiple Images from dir
 - [x] Generate Random Colors
-- [ ] Extracting Frame from Video file
+- [x] Extracting Frame from Video file
 - [ ] color segmentation 
 - [ ] Contours Detection
 - [ ] Contours Sorting By Area
