@@ -184,12 +184,15 @@ def check_dir_exists(dir_name):
 def frame_extractor(cam_id_or_video_path, dir_to_save="frames"):
     cap = cv.VideoCapture(cam_id_or_video_path)
     check_dir_exists(dir_to_save)
-
+    frame_counter = 0
     while True:
         ret, frame = cap.read()
         if not ret:
             print("please correct the path or id of input ID(index) of camera")
             break
+        frame_save_path = f"{dir_to_save}/frame_{frame_counter}.png"
+        cv.imwrite(frame_save_path, frame)
+        frame_counter += 1
         cv.imshow("frame", frame)
         key = cv.waitKey(1)
         if key == ord("q"):
