@@ -1,8 +1,7 @@
 # AiPhile
 
-> This is python files which contain few helping function to draw better text, on screen, like text with background, and drawing transparent shapes.
-there will more functionalities added later on, I will be updating this files 
-
+> ***This is python files which contain few helping function to draw better text, on screen, like text with background, and drawing transparent shapes.
+there will more functionalities added later on, I will be updating this files***
 # TODO
 - [x] Draw Text with background 
 - [x] Draw Text with background and outline
@@ -10,6 +9,7 @@ there will more functionalities added later on, I will be updating this files
 - [x] Reading Multiple Images from dir
 - [x] Generate Random Colors
 - [x] Extracting Frame from Video file
+- [ ] Resize Image
 - [ ] color segmentation 
 - [ ] Contours Detection
 - [ ] Contours Sorting By Area
@@ -20,6 +20,13 @@ there will more functionalities added later on, I will be updating this files
 - [ ] Aruco Marker Generator 
 - [ ] Marker Detection
 - [ ] Camera Calibration
+- [ ] Face Detection with OpenCV
+- [ ] Face Detection with Mediapipe
+- [ ] Face Landmarks Detection with MediaPipe 
+- [ ] Hand Landmarks Detection with MediaPipe
+- [ ] Pose Estimation with MediaPipe 
+- Gesture Recognition 
+
 
 ## Requirements 
 
