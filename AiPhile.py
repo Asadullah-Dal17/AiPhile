@@ -14,6 +14,26 @@ import random
 
 import cv2 as cv
 import numpy as np
+import time
+
+
+class FPS:
+    def __init__(
+        self,
+    ):
+        self.frame_counter = 0
+        self.start_time = time.time()
+
+    def get_frame_rate(self):
+        current_time = time.time()
+
+        self.frame_counter += 1
+        fps = self.frame_counter / (current_time - self.start_time)
+        if self.frame_counter >= 50:
+            self.frame_counter = 0
+            self.start_time = time.time()
+        # print(fps, end="\r")
+        return fps
 
 
 def get_random_rgb_color():
@@ -202,7 +222,9 @@ def frame_extractor(cam_id_or_video_path, dir_to_save="frames"):
 
 
 if __name__ == "__main__":
-    frame_extractor(1)
+    # -- Checking FPS function. --
+    
+    # frame_extractor(1)
     # list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(10)
     # list_of_colors.pop(0)
     # list_of_colors = convert_flat_list_to_list_of_two_values(list_of_colors)
