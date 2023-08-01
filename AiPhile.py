@@ -24,7 +24,7 @@ class FPS:
         self.frame_counter = 0
         self.start_time = time.time()
 
-    def get_frame_rate(self):
+    def get_frame_rate(self, image):
         current_time = time.time()
 
         self.frame_counter += 1
@@ -33,6 +33,14 @@ class FPS:
             self.frame_counter = 0
             self.start_time = time.time()
         # print(fps, end="\r")
+        text_with_background(
+            image,
+            f"FPS: {fps:.2f}",
+            fonts=cv.FONT_HERSHEY_TRIPLEX,
+            scaling=0.7,
+            color=(0, 255, 0),
+            bg_color=(75, 0, 125),
+        )
         return fps
 
 
@@ -223,7 +231,20 @@ def frame_extractor(cam_id_or_video_path, dir_to_save="frames"):
 
 if __name__ == "__main__":
     # -- Checking FPS function. --
-    
+    fps_calc = FPS()
+    cap = cv.VideoCapture(1)
+    while True:
+        ret, frame = cap.read()
+        if ret is False:
+            break
+        _fps = fps_calc.get_frame_rate(frame)
+
+        cv.imshow("frame", frame)
+        key = cv.waitKey(1)
+        if key == ord("q"):
+            break
+    cap.release()
+    cv.destroyAllWindows()
     # frame_extractor(1)
     # list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(10)
     # list_of_colors.pop(0)
