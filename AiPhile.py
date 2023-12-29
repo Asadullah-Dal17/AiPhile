@@ -15,6 +15,20 @@ import random
 import cv2 as cv
 import numpy as np
 import time
+import matplotlib
+
+
+def get_bgr_colors(length=5):
+    bgr_colors = []
+    for color in matplotlib.colors.CSS4_COLORS.values():
+        r, g, b = matplotlib.colors.to_rgb(color)
+        r = int(r * 255)
+        b = int(b * 255)
+        g = int(g * 255)
+        bgr_colors.append((b, g, r))
+        if len(bgr_colors) + 1 > length:
+            return bgr_colors
+    return bgr_colors
 
 
 class FPS:
@@ -230,9 +244,12 @@ def frame_extractor(cam_id_or_video_path, dir_to_save="frames"):
 
 
 if __name__ == "__main__":
+    # list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(13)
+    # print(list_of_colors)
+    # image = np.zeros((600, 600, 3), dtype=np.uint8)
     # -- Checking FPS function. --
     fps_calc = FPS()
-    cap = cv.VideoCapture(1)
+    cap = cv.VideoCapture(0)
     while True:
         ret, frame = cap.read()
         if ret is False:
@@ -245,30 +262,3 @@ if __name__ == "__main__":
             break
     cap.release()
     cv.destroyAllWindows()
-    # frame_extractor(1)
-    # list_of_colors = get_list_of_random_rgb_colors_with_decent_contrast(10)
-    # list_of_colors.pop(0)
-    # list_of_colors = convert_flat_list_to_list_of_two_values(list_of_colors)
-    # fg_color, bg_color = list_of_colors[1]
-    # # for color in list_of_colors:
-    # #     print(color)
-    # # creating empty image using np
-    # image = np.zeros((800, 800, 3), dtype=np.uint8)
-    # # turn black color into white color image
-    # image[image == 0] = 255
-    # # Draw the transparent circle on the image
-    # image = trans_circle(image, (400, 400), 80, list_of_colors[2][0], 0.4, 4)
-    # # create rectangle with corners around that.
-    # image = rect_corners(image, [255, 255, 290, 290], (0, 0, 0), th=5)
-    # # Draw text with background
-    # text_with_background(
-    #     image,
-    #     f"AiPhile is all about Computer Vision",
-    #     (30, 60),
-    #     fonts=cv.FONT_HERSHEY_TRIPLEX,
-    #     scaling=1.11,
-    #     color=fg_color,
-    #     bg_color=bg_color,
-    # )
-    # cv.imshow("image", image)
-    # cv.waitKey(0)
